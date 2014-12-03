@@ -3,10 +3,10 @@
 {% block pre %}
     <div class="department-header relative">
         <div class="row">
-            <div class="columns large-1">
+            <div class="column-back">
                 <a href="/" class="back-text">Назад</a>
             </div>
-            <div class="columns large-11">
+            <div class="column-title">
                 <h1>{{ page }}</h1>
             </div>
         </div>
@@ -16,9 +16,11 @@
 {% block content %}
     <div class="department-detail row">
         <div class="columns large-8 department-page">
+            {% if page.price %}
             <div class="price-container">
                 {{ page.price }}
             </div>
+            {% endif %}
 
             {{ page.content|safe }}
 
@@ -27,7 +29,7 @@
         <div class="columns large-4 department-sidebar">
             {% set workers = model.workers.all() %}
             {% if workers|length > 0 %}
-                <div class="owner-container">
+                <div class="owner-container no-margin">
                     {% for worker in workers %}
                         <div class="row">
                             <div class="owner">
