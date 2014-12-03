@@ -4,10 +4,10 @@
     <div class="department-header relative">
         <div class="row">
             <div class="columns large-1">
-                <a href="/" class="back"></a>
+                <a href="/" class="back-text">Назад</a>
             </div>
             <div class="columns large-11">
-                <h1>{{ model }}</h1>
+                <h1>{{ page }}</h1>
             </div>
         </div>
     </div>
@@ -16,8 +16,6 @@
 {% block content %}
     <div class="department-detail row">
         <div class="columns large-8 department-page">
-            <h1>{{ page }}</h1>
-
             <div class="price-container">
                 {{ page.price }}
             </div>
@@ -29,25 +27,25 @@
         <div class="columns large-4 department-sidebar">
             {% set workers = model.workers.all() %}
             {% if workers|length > 0 %}
-                <div class="owner-container no-margin">
+                <div class="owner-container">
                     {% for worker in workers %}
                         <div class="row">
                             <div class="owner">
                                 {% if worker.photo.value %}
-                                    <div class="columns large-2">
-                                        {{ worker.photo.url_80x80 }}
+                                    <div class="columns large-3">
+                                        <img src="{{ worker.photo.url_80x80 }}" alt=""/>
                                     </div>
-                                    <div class="columns large-10">
+                                    <div class="columns large-9">
                                         <p class="role">{{ worker.role }}</p>
                                         <p class="name">
-                                            {{ worker.last_name }} {{ worker.first_name }} {{ worker.middle_name }}
+                                            {{ worker }}
                                         </p>
                                     </div>
                                 {% else %}
                                     <div class="columns large-12">
                                         <p class="role">{{ worker.role }}</p>
                                         <p class="name">
-                                            {{ worker.last_name }} {{ worker.first_name }} {{ worker.middle_name }}
+                                            {{ worker }}
                                         </p>
                                     </div>
                                 {% endif %}
