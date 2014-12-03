@@ -32,8 +32,8 @@
                             <ul class="no-bullet">
                                 {% for page in category.pages.all() %}
                                     <li>
-                                        {% if page.content|striptags|trim|length > 0 %}
-                                            &mdash; <a href="{{ page.getAbsoluteUrl() }}">{{ page }}</a>
+                                        {% if page.url or page.content|striptags|trim|length > 0 %}
+                                            &mdash; <a href="{% if page.url %}{{ page.url }}{% else %}{{ page.getAbsoluteUrl() }}{% endif %}">{{ page }}</a>
                                         {% else %}
                                             &mdash; {{ page }}
                                         {% endif %}

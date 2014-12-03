@@ -32,7 +32,8 @@ class Category extends Model
             ],
             'content' => [
                 'class' => TextField::className(),
-                'verboseName' => ClinicModule::t('Content')
+                'verboseName' => ClinicModule::t('Content'),
+                'null' => true
             ],
             'position' => [
                 'class' => IntField::className(),
