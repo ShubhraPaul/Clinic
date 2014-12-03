@@ -34,6 +34,7 @@ class Page extends Model
             'price' => [
                 'class' => CharField::className(),
                 'verboseName' => ClinicModule::t('Price'),
+                'null' => true
             ],
             'url' => [
                 'class' => CharField::className(),
