@@ -32,11 +32,8 @@ class Page extends Model
                 'verboseName' => ClinicModule::t('Name')
             ],
             'price' => [
-                'class' => DecimalField::className(),
-                'precision' => 10,
-                'scale' => 2,
+                'class' => CharField::className(),
                 'verboseName' => ClinicModule::t('Price'),
-                'null' => true
             ],
             'content_short' => [
                 'class' => TextField::className(),

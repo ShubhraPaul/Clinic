@@ -3,6 +3,7 @@
 return array(
     'Name' => 'Название',
     'Content' => 'Описание',
+    'Content after pages' => 'Описание после списка страниц',
     'Workers' => 'Сотрудники',
     'Image' => 'Изображение',
     'Images' => 'Изображения',
@@ -16,6 +17,7 @@ return array(
     'Pages' => 'Страницы',
     'Departments' => 'Отделения',
     'Clinic' => 'Клиника',
+    'Prices' => 'Цены',
     'Phone' => 'Телефон',
     'Create department' => 'Добавить отдел',
     'Update department: {name}' => 'Редактирование отдела: {name}',

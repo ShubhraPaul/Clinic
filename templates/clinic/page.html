@@ -1,7 +1,7 @@
 {% extends "clinic/base.html" %}
 
 {% block pre %}
-    <div class="department-header">
+    <div class="department-header relative">
         <div class="row">
             <div class="columns large-1">
                 <a href="/" class="back"></a>
@@ -11,14 +11,17 @@
             </div>
         </div>
     </div>
-    <div class="header-background backstretch"
-         data-src="{% if model.image.value %}{{ model.image.url }}{% else %}http://placehold.it/1920x462{% endif %}"></div>
 {% endblock %}
 
 {% block content %}
     <div class="department-detail row">
         <div class="columns large-8 department-page">
             <h1>{{ page }}</h1>
+
+            <div class="price-container">
+
+            </div>
+
             {{ page.content|safe }}
 
             <p><a class="button back" href="{{ model.getAbsoluteUrl() }}">Вернуться</a></p>
@@ -26,7 +29,7 @@
         <div class="columns large-4 department-sidebar">
             {% set workers = model.workers.all() %}
             {% if workers|length > 0 %}
-                <div class="owner-container">
+                <div class="owner-container no-margin">
                     {% for worker in workers %}
                         <div class="row">
                             <div class="owner">

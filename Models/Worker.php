@@ -58,7 +58,12 @@ class Worker extends Model
 
     public function __toString()
     {
-        return (string)strtr("{last_name}{first_name}{middle_name}", [
+        return (string)$this->getFullName();
+    }
+
+    public function getFullName()
+    {
+        return strtr("{last_name} {first_name} {middle_name}", [
             "{last_name}" => $this->last_name,
             "{first_name}" => $this->first_name,
             "{middle_name}" => $this->middle_name

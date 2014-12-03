@@ -28,11 +28,15 @@
 
                     <div class="department-pages">
                         {% for category in model.categories.all() %}
-                            <h5>{{ category }}</h5>
+                            <h4>{{ category }}</h4>
                             <ul class="no-bullet">
                                 {% for page in category.pages.all() %}
                                     <li>
-                                        &mdash; <a href="{{ page.getAbsoluteUrl() }}">{{ page }}</a>
+                                        {% if page.content|striptags|trim|length > 0 %}
+                                            &mdash; <a href="{{ page.getAbsoluteUrl() }}">{{ page }}</a>
+                                        {% else %}
+                                            &mdash; {{ page }}
+                                        {% endif %}
                                     </li>
                                 {% endfor %}
                             </ul>
@@ -56,19 +60,19 @@
                     <div class="owner">
                         {% if worker.photo.value %}
                             <div class="columns large-2">
-                                {{ worker.photo.url_80x80 }}
+                                <img src="{{ worker.photo.url_80x80 }}" alt=""/>
                             </div>
                             <div class="columns large-10">
                                 <p class="role">{{ worker.role }}</p>
                                 <p class="name">
-                                    {{ worker.last_name }} {{ worker.first_name }} {{ worker.middle_name }}
+                                    {{ worker }}
                                 </p>
                             </div>
                         {% else %}
                             <div class="columns large-12">
                                 <p class="role">{{ worker.role }}</p>
                                 <p class="name">
-                                    {{ worker.last_name }} {{ worker.first_name }} {{ worker.middle_name }}
+                                    {{ worker }}
                                 </p>
                             </div>
                         {% endif %}

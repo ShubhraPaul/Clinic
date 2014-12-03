@@ -13,11 +13,24 @@
 
 namespace Modules\Clinic\Forms;
 
+use Mindy\Form\Fields\WysiwygField;
 use Mindy\Form\ModelForm;
 use Modules\Clinic\Models\Department;
 
 class DepartmentForm extends ModelForm
 {
+    public function getFields()
+    {
+        return [
+            'prices' => [
+                'class' => WysiwygField::className(),
+            ],
+            'content' => [
+                'class' => WysiwygField::className(),
+            ]
+        ];
+    }
+
     public function getModel()
     {
         return new Department;
