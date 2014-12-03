@@ -22,7 +22,7 @@ class PageController extends CoreController
     {
         $page = $this->getOr404(Page::className(), $pk);
         echo $this->render('clinic/page.html', [
-            'model' => $page->category->department,
+            'model' => $page->department,
             'page' => $page
         ]);
     }
