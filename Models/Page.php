@@ -35,6 +35,10 @@ class Page extends Model
                 'class' => CharField::className(),
                 'verboseName' => ClinicModule::t('Price'),
             ],
+            'url' => [
+                'class' => CharField::className(),
+                'verboseName' => ClinicModule::t('External url')
+            ],
             'content_short' => [
                 'class' => TextField::className(),
                 'null' => true,
