@@ -20,7 +20,9 @@
         <div class="columns large-8">
             <dl class="tabs" data-tab>
                 <dd class="active"><a href="#panel1">Информация</a></dd>
+                {% if model.prices|striptags|trim|length > 0 %}
                 <dd><a href="#panel2">Цены</a></dd>
+                {% endif %}
             </dl>
             <div class="tabs-content">
                 <div class="content active" id="panel1">
@@ -45,9 +47,11 @@
 
                     {{ model.content_after|safe }}
                 </div>
+                {% if model.prices|striptags|trim|length > 0 %}
                 <div class="content" id="panel2">
                     {{ model.prices|safe }}
                 </div>
+                {% endif %}
             </div>
 
         </div>
