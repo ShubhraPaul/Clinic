@@ -93,7 +93,11 @@
                     {{ model.phone }}
                 </li>
                 <li class="map">
-                    Киров, ул. Щорса, 64<br/>
+                    {% if model.pk == 3 %}
+                        Киров, ул. Володарского, 161<br/>
+                    {% else %}
+                        Киров, ул. Щорса, 64<br/>
+                    {% endif %}
                     <a href="/pages/contacts">Показать на карте</a>
                 </li>
             </ul>
